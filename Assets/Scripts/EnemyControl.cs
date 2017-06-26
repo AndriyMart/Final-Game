@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour {
 	float speed;
 
+	public GameObject Explosion;
 
 	// Use this for initialization
 	void Start () {
-		speed = 2f;	
+		speed = 0.5f;	
 	}
 	
 	// Update is called once per frame
@@ -25,4 +26,24 @@ public class EnemyControl : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col){
+
+		if ((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag")) {
+
+			PlayExplosion ();
+
+			Destroy (gameObject);
+
+		}
+	}
+
+	void PlayExplosion(){
+
+		GameObject explosion = (GameObject)Instantiate (Explosion);
+
+		explosion.transform.position = transform.position;
+
+	}
+
 }
