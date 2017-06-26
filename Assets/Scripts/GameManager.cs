@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerShip;
 	public GameObject enemySpawner;
 	public GameObject GameOver;
-
+	public GameObject GameTitle; 
 
 	public enum GameManagerState{
 
@@ -33,14 +33,19 @@ public class GameManager : MonoBehaviour {
 		switch (GMState) {
 		case GameManagerState.Opening:
 			//Hide "game over"
-			GameOver.SetActive(false);
+			GameOver.SetActive (false);
+
+			GameTitle.SetActive (true);
 
 			playButton.SetActive(true);
 			break;
 		case GameManagerState.Gameplay:
 
 			//hide button while playing
-			playButton.SetActive(false);
+			playButton.SetActive (false);
+
+			GameTitle.SetActive (false);
+
 			//and shp visible
 			playerShip.GetComponent<PlayerControl>().Init();
 

@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public float speed;
  
+	 
 	public void Init(){
 
 		lives = MaxLives;
@@ -28,18 +29,24 @@ public class PlayerControl : MonoBehaviour {
 		//set game object active
 		gameObject.SetActive(true);
 
+		//set position
+		gameObject.SetActive(true);
+
 	}
 
 
 	// Use this for initialization
 	void Start () {
 		
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if(Input.GetKeyDown("space")){
+
 			GameObject bullet01 = (GameObject)Instantiate (PlayerBulletGo);
 			bullet01.transform.position = BulletPosition.transform.position;
 		}
